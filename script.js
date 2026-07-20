@@ -1,6 +1,6 @@
 let tugma = document.querySelector(".tugma");
 let ism = document.querySelector(".ism");
-let div = document.querySelector(".project");
+let div_modal = document.querySelector(".project-modal");
 let familiya = document.querySelector(".age");
 let matn = document.querySelector(".matn");
 let pink = document.querySelector(".pink");
@@ -8,23 +8,32 @@ let blue = document.querySelector(".blue");
 let orange = document.querySelector(".orange");
 let green = document.querySelector(".green");
 let bluewiolet = document.querySelector(".bluewiolet");
-let img = document.querySelector(".img");
+let blah = document.querySelector("#blah");
+let imgInp = document.querySelector("#imgInp");
+let image = document.querySelector(".img");
+let dizayn = document.querySelector(".flex-btn-1");
+let none = document.querySelector(".none");
+let div = document.querySelector(".project");
 let bg = document.querySelector(".bg");
 
 tugma.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let name2 = familiya.value;
-  div.getElementsByTagName("p")[0].innerText = name2;
-
   let name = ism.value;
-  div.getElementsByTagName("h2")[0].innerText = name;
+  div_modal.querySelector(".project-name").innerText = name;
+  div.querySelector(".project-name").innerText = name;
 
   let name3 = matn.value;
-  div.getElementsByTagName("p")[0].innerText = name3;
+  div_modal.querySelector(".project-text").innerText = name3;
+  div.querySelector(".project-text").innerText = name3;
 
   let name4 = familiya.value;
-  div.getElementsByTagName("pre")[0].innerText = name4;
+  div_modal.querySelector(".yosh").innerText = name4;
+  div.querySelector(".yosh").innerText = name4;
+
+  let name5 = image.value;
+  div_modal.querySelector(".project-img").src = name5;
+  div.querySelector(".project-img").src = name5;
 });
 pink.addEventListener("click", (e1) => {
   e1.preventDefault();
@@ -65,4 +74,38 @@ bluewiolet.addEventListener("click", (e5) => {
     "url('https://static.vecteezy.com/system/resources/previews/060/298/187/non_2x/purple-background-with-golden-happy-birthday-greeting-and-many-colorful-balloons-flying-upright-vector.jpg')";
   bg.style.backgroundSize = "cover";
   bg.style.backgroundPosition = "center";
+});
+imgInp.onchange = (evt) => {
+  const [file] = imgInp.files;
+  if (file) {
+    blah.src = URL.createObjectURL(file);
+  }
+};
+const modal = document.getElementById("modal");
+const openBtn = document.getElementById("openBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+function openModal() {
+  modal.classList.add("show");
+}
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+openBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+
+/* Close when clicking outside the modal box */
+modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+/* Close when pressing Escape */
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
 });
