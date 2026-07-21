@@ -103,12 +103,7 @@ imgInp.onchange = (evt) => {
     blah.src = URL.createObjectURL(file);
   }
 };
-imgInp_modal.onchange = (evt) => {
-  const [file] = imgInp_modal.files;
-  if (file) {
-    blah.src = URL.createObjectURL(file);
-  }
-};
+
 const modal = document.getElementById("modal");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
@@ -137,3 +132,9 @@ document.addEventListener("keydown", function (event) {
     closeModal();
   }
 });
+imgInp_modal.onchange = (evt) => {
+  const [file] = imgInp_modal.files;
+  if (file) {
+    blah.src = URL.createObjectURL(file);
+  }
+};
