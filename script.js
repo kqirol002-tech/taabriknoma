@@ -10,7 +10,7 @@ let green = document.querySelector(".green");
 let bluewiolet = document.querySelector(".bluewiolet");
 let blah = document.querySelector("#blah");
 let imgInp = document.querySelector("#imgInp");
-let imgInp_modal = document.querySelector("#imgInp-modal");
+let blah_modal = document.querySelector("#blah-modal");
 let image = document.querySelector(".img");
 let dizayn = document.querySelector(".flex-btn-1");
 let none = document.querySelector(".none");
@@ -132,9 +132,9 @@ document.addEventListener("keydown", function (event) {
     closeModal();
   }
 });
-imgInp_modal.onchange = (evt) => {
-  const [file] = imgInp_modal.files;
+imgInp.onchange = (evt) => {
+  const [file] = imgInp.files;
   if (file) {
-    blah.src = URL.createObjectURL(file);
+    blah_modal.src = URL.createObjectURL(file);
   }
 };
