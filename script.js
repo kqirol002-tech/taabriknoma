@@ -10,6 +10,7 @@ let green = document.querySelector(".green");
 let bluewiolet = document.querySelector(".bluewiolet");
 let blah = document.querySelector("#blah");
 let imgInp = document.querySelector("#imgInp");
+let imgInp_modal = document.querySelector("#imgInp-modal");
 let image = document.querySelector(".img");
 let dizayn = document.querySelector(".flex-btn-1");
 let none = document.querySelector(".none");
@@ -79,7 +80,7 @@ green.addEventListener("click", (e4) => {
     "url('https://img.magnific.com/premium-vector/birthday-photo-frame-event-party-bitrhday-celebration-gold-glitter-green-background_1023797-1561.jpg?semt=ais_hybrid&w=740&q=80')";
   bg.style.backgroundSize = "cover";
   bg.style.backgroundPosition = "center";
-   bg_modal.style.backgroundImage =
+  bg_modal.style.backgroundImage =
     "url('https://img.magnific.com/premium-vector/birthday-photo-frame-event-party-bitrhday-celebration-gold-glitter-green-background_1023797-1561.jpg?semt=ais_hybrid&w=740&q=80')";
   bg_modal.style.backgroundSize = "cover";
   bg_modal.style.backgroundPosition = "center";
@@ -98,6 +99,12 @@ bluewiolet.addEventListener("click", (e5) => {
 });
 imgInp.onchange = (evt) => {
   const [file] = imgInp.files;
+  if (file) {
+    blah.src = URL.createObjectURL(file);
+  }
+};
+imgInp_modal.onchange = (evt) => {
+  const [file] = imgInp_modal.files;
   if (file) {
     blah.src = URL.createObjectURL(file);
   }
